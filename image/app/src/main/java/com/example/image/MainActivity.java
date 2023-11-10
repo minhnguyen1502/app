@@ -17,11 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewFlipper = (android.widget.ViewFlipper)findViewById(R.id.viewFlipper);
-        next = (Button) findViewById(R.id.next);
-        previous = (Button) findViewById(R.id.previous);
-//        next.setOnClickListener(this);
-//        previous.setOnClickListener(this);
+        viewFlipper = findViewById(R.id.viewFlipper);
+        next =  findViewById(R.id.next);
+        previous =   findViewById(R.id.previous);
+
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override

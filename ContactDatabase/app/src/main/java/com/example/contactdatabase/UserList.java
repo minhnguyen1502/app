@@ -6,21 +6,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class UserList extends AppCompatActivity {
-
     RecyclerView recyclerView;
     ArrayList<String> name, email, date;
+    FloatingActionButton back;
     DBHelper DB;
     userAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
-
         DB = new DBHelper(this);
         name = new ArrayList<>();
         email = new ArrayList<>();
@@ -28,6 +30,13 @@ public class UserList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new userAdapter(this, name, email, date);
         recyclerView.setAdapter(adapter);
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         displaydata();
     }
